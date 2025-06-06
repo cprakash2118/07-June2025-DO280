@@ -1,0 +1,268 @@
+********************
+### Point-01:-
+#Product Name - Red Hat OpenShift
+https://www.redhat.com/en/resources/2023-forrester-wave-multicloud-container-platform
+https://reprints2.forrester.com/#/assets/2/431/RES178526/report
+
+1-) Cloud services editions.
+ - Red Hat OpenShift Service on AWS     [Platfrom=AWS, POC=Amazon]
+ - Microsoft Azure Red Hat OpenShift    [Platfrom=Azure, POC,MS-Azure]
+ - Red Hat OpenShift Dedicated          [Platfrom=AWS/GCP, POC=RedHat]
+ - Red Hat OpenShift on IBM Cloud       [Platfrom=IBM, POC=IBM]
+ 
+ 
+2-) Self-managed editions
+ - Red Hat OpenShift Kubernetes Engine       [Basic]
+ - Red Hat OpenShift Container Platform      [Standard]
+ - Red Hat OpenShift Platform Plus           [Add-on Service]
+ - Red Hat OpenShift Virtualization Engine   [Virtualization]
+ 
+3-) Services & add-ons
+ - Red Hat OpenShift AI
+ - Red Hat OpenShift Lightspeed
+ - Red Hat OpenShift Virtualization
+ - Red Hat Quay
+ - Red Hat Advanced Cluster Management for Kubernetes
+ - Red Hat Advanced Cluster Security for Kubernetes
+ - Red Hat Advanced Developer Suite
+ - Red Hat OpenShift Consulting
+  
+https://www.redhat.com/en/resources/openshift-skill-paths-datasheet
+
+
+
+********************
+### Point-02:-
+- Kubernetes (k8s) Vs Red Hat OpenShift (OCP)
+
+#Kubernetes:- 
+https://github.com/cprakash2118/kubernetes-projects
+https://kubernetes.io/docs/setup/production-environment/container-runtimes/
+https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
+
+Layer-06  End user application (like bookMyShow.com)
+Layer-05  Add on services for k8s - networking, logging, metalLB
+Layer-04  Deploy/Install Certified Kubernetes (k8s) 
+          FYI- kubelet (systemd), kube-apiserver,, kube-controller, kube-scheduler, etcd.  
+Layer-03  Container Run Time (containerd, crio, Mirantis Container Runtime, docker etc)
+          FYI- containerd (systemd service)
+
+Layer-02  Server Operating System (OS) - RHEL/SUSE etc 
+Layer-01  bare metal/Virtualization env/Cloud env 
+
+
+
+#Red Hat OpenShift:-
+Layer-07  End user application (like bookMyShow.com)
+Layer-06  Red Hat OpenShift Platform Plus
+Layer-05  Red Hat OpenShift Container Platform
+Layer-04  Red Hat OpenShift Kubernetes Engine 
+          FYI- kubelet (systemd), kube-apiserver,, kube-controller, kube-scheduler, etcd.    
+Layer-03  Container Run Time (containerd, crio, Mirantis Container Runtime, docker etc)
+          FYI- crio (systemd service)
+Layer-02  Server Operating System (OS) - RHEL coreOS 
+Layer-01  bare metal/Virtualization env/Cloud env 
+
+Red Hat OpenShift AnyWhere
+
+
+
+********************
+### Point-03:-
+- Classroom Environment.
+1-) User Details:-
+ - Login to VMs/Servers:-
+   student/student [sudo access]
+   root/redhat 
+   
+ - Login to OCP cluster.
+   admin/redhatocp  [role=cluster-admin -> root account as same as Linux]
+   developer/developer [role=member]
+   kubeadmin/password-location=[on "utility" node; /home/lab/ocp4/auth/kubeadmin-=password]
+   
+   $ ssh utility -l root ; cd /home/lab/ocp4/auth/ ; ls 
+   kubeconfig kubeadmin-password 
+   $ cat kubeadmin-password ; echo 
+   FYI- kubeadmin's user password.
+   
+  Note: What are the factors required for login to OCP cluster.
+  UserName - ?
+  Password - ?
+  API URL  - ?
+  
+  Login via CLI (Using oc) and Web Console [API login - other option]
+  
+  Example:-
+   $ oc login -u userName -p Password https://api.clusterName.baseDomain:6443 
+     userName=admin 
+	 Password=redhatocp
+     clusterName=ocp4 
+     baseDomain=example.com 
+     LB-port=6443 
+     LB host entry=api.clusterName.baseDomain 
+	 
+   $ oc login -u admin -p redhatocp https://api.ocp4.example.com:6443 
+   
+Referen Link - 
+https://docs.redhat.com/en/documentation/openshift_container_platform/4.14/pdf/installing_on_bare_metal/OpenShift_Container_Platform-4.13-Installing_on_bare_metal-en-US.pdf
+  
+  
+2-) Network/Domain Details:- 
+  NetworkName             NetworkRange (IP Address)           DomainName 
+  Student Network          172.25.250.0/24                   lab.example.com 
+  Cluster Network          192.168.50.0/24                   ocp4.example.com  
+
+
+3-) VMs/Servers:-
+
+  workstation.lab.example.com    - Jump server [Used to login to OCP cluster]
+  utility.lab.example.com        - connect student network to cluster network [eth0-172;eth1-192.168.50]
+  master01.ocp4.example.com      - Master node [master & worker]
+  
+  But as per Prod practics:-
+  master01-03.ocp4.example.com 
+  worker01-03.ocp4.example.com 
+  
+  Red Hat OpenShift - OCP cluster = master + worker [worker -> infra/storage/custom/xyz]
+  Alway onboarding w.r.t master/worker only 
+
+ "OCP version"   vs "k8s version"  
+    4.14               1.27 
+    4.15               1.28 
+    4.16               1.29 
+    4.17               1.30 
+    4.18               1.31 
+    4.19               1.32 	
+
+####################################################
+### Quick Recap:-
+Point-01:- Product Name - Red Hat OpenShift
+Point-02:- Kubernetes (k8s) Vs Red Hat OpenShift (OCP).
+Point-03:- Classroom Environment detail explnation.
+           - Login to Servers/VMs & OCP cluster.
+		   - Domain/Network 
+		   - VMs/Servers
+Point-04:- How to access Red Hat Cloud LAB environment.
+ - ROL - RedHat Online Learning (Platform).
+   https://rol.redhat.com [Red Hat Login ID/Password] 
+   LABs & Boofself(PDF) w.r.t DO280v414
+Point-05:- Table Of Contents (TOC):-
+
+ 1. Declarative Resource Management 
+    - Resource Manifest 
+	- Kustomization/Overlay 
+	
+ 2. Deploy Packaged Applications
+    - Helm [Git repo - *.yaml files ]
+	- Template [Template - single file which carry all k8s resources pod;deployment;service;cm etc]
+	
+ 3. Authentication & Authorization [Working with Identity Providers ; IdP=htpasswd/LDAP/OIDC along with RBAC]
+    - Configure IDP 
+	- RBAC 
+	
+ 4. Network Security:-
+    - Protect External Traffic with TLS 
+    - Configure Network Policies 
+    - Protect Internal Traffic with TLS 
+
+ 5.  Expose non-HTTP/SNI Applications
+    - Load Balancer Services 
+    - Multus Secondary Networks
+	
+ 6. Enable Developer Self-Service - Quota/LimitRange/TemplateBuilf
+    - ResourceQuota 
+	- LimitRange 
+	- TemplateBuilf
+	
+ 7. Manage Kubernetes Operators
+  - Install Operators with the Web Console 
+  - Install Operators with the CL
+  
+ 8. Application Security
+  - Control Application Permissions with Security Context Constraints 
+  - Allow Application Access to Kubernetes APIs 
+  - Cluster and Node Maintenance with Kubernetes Cron Jobs 
+ 
+ 9.  OpenShift Updates
+
+##########################
+Unit 3. Authentication & Authorization:-
+- Configure Identity Providers 
+- Define and Apply Permissions with RBAC 
+
+1-) Login to OCP cluster:-
+    1.1 Using token (Token based auth - via user/password)
+	1.2 Using kubeconfig file (Certificate based auth)
+	
+	
+	Step-1) Oauth (version 2.x - inbuild service w.r.t OpenShift)
+    Step-2) OpenShift-apiserver (proxy server) and forward the request to kube-apiserver 
+	Step-3) kube-apiserver do all authentication (TOken/Certificate)
+	Step-4) kube-apiserver sync with ETCD/kube-scheduler/kube-controller
+	
+	Example of Token based authentication:-
+	$ oc login -u admin -p redhatocp https://api.ocp4.example.com:6443 
+	$ oc whoami 
+	userName 
+	$ oc whoami -t 
+	loginToken
+	
+	Task-01:-
+	userName=rhuser1-5 ; password=redhat123 ; IdP (IdentityProvider)=htpasswd ; IdP-Name="htpasswd-admin-team"
+	
+	userName= ?
+	password= ?
+	API-URL= https://api.ocp4.example.com:6443 
+	
+	Steps for adding additional users via IdP=htpasswd [Can be LDAP, Git, OIDC etc]
+	
+#Step-1- Create the users/password details/database.
+	$ htpasswd --help 
+	$ htpasswd -c -B -b htpasswd-upload-file rhuser1 redhat123
+	$ htpasswd    -B -b htpasswd-upload-file rhuser2 redhat123
+	$ htpasswd    -B -b htpasswd-upload-file rhuser3 redhat123
+	$ htpasswd    -B -b htpasswd-upload-file rhuser4 redhat123
+	$ htpasswd    -B -b htpasswd-upload-file rhuser5 redhat123
+	
+	$ cat htpasswd-upload-file
+	
+#Step-2- Create secret (type=generic ; creating secret via file) - Login to OCP cluster as admin (cluster-admin).
+    $ oc create secret generic secret-htpasswd --from-file htpasswd=htpasswd-upload-file -n openshift-config  
+    $ oc get secret -n 	openshift-config
+	or 
+	$ oc get secret secret-htpasswd -n openshift-config
+	$ oc get secret secret-htpasswd -n openshift-config -o yaml/json 
+	
+	
+#Step-3- Update to Oauth service (Inbuild service w.r.t openshift).
+    $ oc get oauth cluster 
+	$ oc get oauth cluster -o yaml > oauth.yaml 
+	$ vim oauth.yaml 
+	Update the requied information - key/value 
+    
+    ----------------------
+	- name: my_identity_provider 1
+      mappingMethod: claim 2
+      type: HTPasswd
+      htpasswd:
+        fileData:
+          name: htpass-secret
+    ----------------------
+	https://docs.redhat.com/en/documentation/openshift_container_platform/4.14/pdf/authentication_and_authorization/OpenShift_Container_Platform-4.14-Authentication_and_authorization-en-US.pdf
+	
+	$ oc apply -f ouath.yaml 
+	$ oc get pods -n openshhift-authentication 
+	$ oc login -u rhuser1 -p redhat https://api.ocp4.example.com:6443 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
