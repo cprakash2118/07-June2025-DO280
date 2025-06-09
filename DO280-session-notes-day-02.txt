@@ -46,7 +46,7 @@ namespace=project
 oc new-project namespace.
 
 
-
+###
 Solution#Task-01:-
 $ oc login -u admin -p redhatocp https://api.ocp4.example.com:6443 
 $ co whoami 
@@ -84,30 +84,31 @@ spec:
       fileData:
         name: htpass-secretName-Here 
 		
-$ oc apply -f oauth.yaml 
+
 $ oc get pods -n openshift-authetication 
 $ oc login -u user1 -p passwd https://api.ocp4.example.com:6443 
 $ oc get users 
 $ oc get identity 
 $ oc get groups
 
+We will continue the same for below sub tasks also.
+user6-10/passwd ; secret=devops-secret ; file-upload=htpasswd-devops ; IdP=htpasswd-devops-do280
+user11-20/passwd ; secret=app01-secret ; file-upload=htpasswd-app01 ; IdP=htpasswd-app01-do280
 
 
+Task-02:- Groups
+grp_sre = user1-5 
+grp_devops = user6-10 
+grp_app01 = user11-20 
 
 
-		
-		
-		
+Task-03:- RBAC
+grp_sre - cluster-admin 
+grp_devops - self-provisioner 
+grp_devops - user11/12 - admin ; user13-18 - edit ; user19-20 - view - w.r.t namespace=ns-app01 
 
-
-
-
-
-
-
-
-
-
+namespace=project
+oc new-project namespace.
 
 
 
