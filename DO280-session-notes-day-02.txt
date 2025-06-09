@@ -125,6 +125,12 @@ $ oc policy add-role-to-user edit user23 -n ns-app01
 $ oc policy add-role-to-user view user29 -n ns-app01
 
 
+FYI 
+- only cluster-admin can use "oc adm policy" 
+- admin w.r.t specific namespace - "oc policy" - this can be done [oc adm policy] 
+
+
+
 
 
 
