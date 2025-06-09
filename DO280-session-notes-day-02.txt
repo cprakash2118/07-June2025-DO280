@@ -101,14 +101,34 @@ grp_sre = user1-5
 grp_devops = user6-10 
 grp_app01 = user11-20 
 
+$ oc adm groups new groupName 
+$ oc get groups 
+$ oc adm groups add-users groupName userName 
+$ oc adm groups add-users groupName userName1 userName2 userName3 
+$ oc get groups 
+
 
 Task-03:- RBAC
 grp_sre - cluster-admin 
 grp_devops - self-provisioner 
-grp_devops - user11/12 - admin ; user13-18 - edit ; user19-20 - view - w.r.t namespace=ns-app01 
+grp_devops - user11/12 - admin ; user13-18 - edit ; user19-20 - view - w.r.t namespace=ns-app01
 
 namespace=project
 oc new-project namespace.
+
+$ oc new-project na-app01 
+$ oc adm policy add-role-to-user admin user21 -n ns-app01
+$ oc login -u user21 -p redhat123 https://api.ocp4.example.com:6443 
+$ oc whoami
+$ oc policy add-role-to-user admin user22 -n ns-app01
+$ oc policy add-role-to-user edit user23 -n ns-app01
+$ oc policy add-role-to-user view user29 -n ns-app01
+
+
+
+
+
+
 
 
 
