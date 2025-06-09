@@ -1,0 +1,58 @@
+#- Quick Recap:-
+Unit-3-# Authentication & Authorization
+  - Authentication - via IdP (Identity Providers - htpasswd, LDAP, OIDC, Git Enterprise, PIngIdentity etc)
+  - Authorization  - Privillege via RBAC (Role Based Access COntrol)
+
+Configure Identity Providers:-
+ - OpenShift Users and Groups
+   Users  - Authentication via Oauth service using token
+   Groups - List of users part of specific groups, to manage the operations.
+   Identity - IdP:user
+   ServiceAccount - User account used by application/API to get the Privillege.
+   Role - Set of rules (rule is like action)
+   
+   oc get users/groups/identity [It saved enties on ETCD cluster - key/value]
+   
+Authenticating API Requests:-
+ - Token Based [OAuth access tokens - inbuild feature of Oauth service]
+ - Certificate Based [ X.509 client certificates ]
+ 
+Identity Providers:-
+1-) HTpasswd
+2-) LDAP (rhds), IDM, Active Directory
+3-) Open ID Connect (OIDC) - RHSSO, PIngIdentity etc 
+4-) Git Enterprise
+5-) KeyStone 
+
+Task-01:-
+user1-5/passwd ; secret=sre-secret ; file-upload=htpasswd-sre ; IdP=htpasswd-sre-do280
+user6-10/passwd ; secret=devops-secret ; file-upload=htpasswd-devops ; IdP=htpasswd-devops-do280
+user11-20/passwd ; secret=app01-secret ; file-upload=htpasswd-app01 ; IdP=htpasswd-app01-do280
+
+Task-02:- Groups
+grp_sre = user1-5 
+grp_devops = user6-10 
+grp_app01 = user11-20 
+
+
+Task-03:- RBAC
+grp_sre - cluster-admin 
+grp_devops - self-provisioner 
+grp_devops - user11/12 - admin ; user13-18 - edit ; user19-20 - view - w.r.t namespace=ns-app01 
+
+namespace=project
+oc new-project namespace.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
