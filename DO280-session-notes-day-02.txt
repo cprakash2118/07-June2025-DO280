@@ -24,6 +24,8 @@ Identity Providers:-
 4-) Git Enterprise
 5-) KeyStone 
 
+############################################
+
 Task-01:-
 user1-5/passwd ; secret=sre-secret ; file-upload=htpasswd-sre ; IdP=htpasswd-sre-do280
 user6-10/passwd ; secret=devops-secret ; file-upload=htpasswd-devops ; IdP=htpasswd-devops-do280
@@ -42,6 +44,66 @@ grp_devops - user11/12 - admin ; user13-18 - edit ; user19-20 - view - w.r.t nam
 
 namespace=project
 oc new-project namespace.
+
+
+
+Solution#Task-01:-
+$ oc login -u admin -p redhatocp https://api.ocp4.example.com:6443 
+$ co whoami 
+$ oc whoami --show-console 
+$ oc version 
+
+Step-1:- Create user's details (username/Password via htpasswd).
+$ htpasswd -c -B -b htpasswd-sre user1 passwd 
+$ htpasswd    -B -b htpasswd-sre user2 passwd 
+$ htpasswd    -B -b htpasswd-sre user3 passwd
+$ htpasswd    -B -b htpasswd-sre user4 passwd
+$ htpasswd    -B -b htpasswd-sre user5 passwd
+
+$ cat htpasswd-sre
+
+Step-2:- Create Secret 
+$ oc create secret generic sre-secret --from-file htpasswd=htpasswd-sre  -n openshift-config 
+$ oc get secret -n openshift-config
+$ oc get secret sre-secret -n openshift-config
+$ oc get secret sre-secret -n openshift-config -o yaml/json (only one at a time).
+
+Step-3:- Update to Oauth service:-
+$ oc get oauth cluster 
+$ oc get oauth cluster -o yaml > oauth.yaml 
+$ vim oauth.yaml 
+-------------
+-------------
+-------------
+spec:
+  identityProviders:
+  - name: Your-Identity-Providers-name 
+    mappingMethod: claim 
+    type: HTPasswd
+    htpasswd:
+      fileData:
+        name: htpass-secretName-Here 
+		
+
+$ oc get pods -n openshift-authetication 
+$ oc login -u user1 -p passwd https://api.ocp4.example.com:6443 
+$ oc get users 
+$ oc get identity 
+$ oc get groups
+
+
+
+
+
+		
+		
+		
+
+
+
+
+
+
 
 
 
