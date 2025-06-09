@@ -1,0 +1,1000 @@
+   94  oc get pods 
+   95  oc get svc 
+   96  oc get replicaset 
+   97  oc get deployment 
+   98  oc get all
+   99  oc new-project demo02
+  100  vim pod.yaml 
+  101  oc edit deployment test -n demo01
+  102  vim pod.yaml 
+  103  ll
+  104  vim pod.yaml 
+  105  oc explain pod |less
+  106  oc explain deployment |less
+  107  vim deployment.yaml 
+  108  oc edit deployment test -n demo01
+  109  vim pod.yaml 
+  110  oc get pods 
+  111  oc get all
+  112  oc create -f pod.yaml --save-config 
+  113  oc get all 
+  114  oc delete pod example-pod 
+  115  oc get all 
+  116  ll
+  117  vim pod.yaml 
+  118  vim replicaset.yaml 
+  119  vim -O replicaset.yaml pod.yaml 
+  120  #oc apply -f replicaset.yaml 
+  121  oc get all 
+  122  oc apply -f replicaset.yaml 
+  123  oc get pods
+  124  oc get replicaset 
+  125  oc get all
+  126  vim replicaset.yaml 
+  127  oc apply -f replicaset.yaml 
+  128  oc get pods 
+  129  oc get replicasets.apps 
+  130  oc delete pod myapp-68lw2 \
+  131  oc delete pod myapp-68lw2 
+  132  oc get pods 
+  133  oc get replicasets.apps 
+  134  oc delete -f replicaset.yaml 
+  135  cp -rpv replicaset.yaml cp-deployment.yaml 
+  136  vim cp-deployment.yaml 
+  137  oc get all
+  138  oc apply -f cp-deployment.yaml 
+  139  oc get all
+  140  oc delete pod myapp-5f7c4b7f6d-lbxvf 
+  141  oc get all
+  142  oc delete -f cp-deployment.yaml 
+  143  oc get all
+  144  vim pod.yaml 
+  145  oc create -f pod.yaml 
+  146  oc edit pod example-pod 
+  147  oc delete -f pod.yaml 
+  148  oc apply -f pod.yaml 
+  149  oc create --help | grep save 
+  150  oc edit pod example-pod 
+  151  oc delete -f pod.yaml  
+  152  oc get nodes 
+  153  kubectl get nodes
+  154  kubectl create deployment db-pod --port 3306 --image registry.ocp4.example.com:8443/rhel8/mysql-80]
+  155  kubectl create deployment db-pod --port 3306 --image registry.ocp4.example.com:8443/rhel8/mysql-80
+  156  kubectl get pods 
+  157  oc logs db-pod-76486b9446-l7mg9
+  158  kubectl set env deployment/db-pod MYSQL_USER='user1' MYSQL_PASSWORD='mypa55w0rd' MYSQL_DATABASE='items'
+  159  kubectl get pods 
+  160  oc rsh db-pod-ddf6fd4b6-px7np 
+  161  oc delete po db-pod-ddf6fd4b6-px7np 
+  162  oc get all
+  163  oc delete deployment db-pod 
+  164  oc get all
+  165  ll
+  166  cd 
+  167  cd -
+  168  cd ..
+  169  ll
+  170  cp -rpv DO280-hpe/*.yaml DO280-hpe/
+  171  cd DO280-hpe/
+  172  ll
+  173  rm -rf DO280-HPE-Session-01.txt 
+  174  ll
+  175  rm -rf 280v414-PPT-phase-01.pptx 
+  176  ll
+  177  rm -rf OCP4\ -\ installation.pdf 
+  178  ll
+  179  rm -rf Openshift-DO280-session-day-0* 
+  180  ll
+  181  pwd
+  182  cd ..
+  183  ll
+  184  cd 31-May25-DO280v414/
+  185  ll
+  186  kubectl create deployment hello-openshift -o yaml --image registry.ocp4.example.com:8443/redhattraining/hello-world-nginx:v1.0 --save-config --dry-run=client > example-deployment.yaml
+  187  vim example-deployment-2.yaml 
+  188  kubectl create deployment hello-openshift -o yaml --image registry.ocp4.example.com:8443/redhattraining/hello-world-nginx:v1.0  --dry-run=client > example-deployment-2.yaml
+  189  ll
+  190  vim example-deployment-2.yaml 
+  191  vim example-deployment.yaml 
+  192  vim example-deployment-2.yaml 
+  193  kubectl apply -f example-deployment.yaml --dry-run=server --validate=true
+  194  vim example-deployment.yaml 
+  195  kubectl apply -f example-deployment.yaml --dry-run=server --validate=true
+  196  vim example-deployment.yaml 
+  197  kubectl apply -f example-deployment.yaml --dry-run=server --validate=true
+  198  vim example-deployment.yaml 
+  199  kubectl apply -f example-deployment.yaml --dry-run=server --validate=true
+  200  oc get pods 
+  201  ll
+  202  oc apply -f example-deployment.yaml 
+  203  oc get pods
+  204  oc diff -f example-deployment
+  205  oc get pods
+  206  oc diff -f example-deployment.yaml 
+  207  oc scale --replicas=2 deployment hello-openshift 
+  208  oc get pods
+  209  oc diff -f example-deployment.yaml 
+  210  oc get pods 
+  211  vim example-deployment-2.yaml 
+  212  lab start declarative-manifests
+  213  oc whoami 
+  214  oc login -u developer -p developer 
+  215  oc whoami 
+  216   oc new-project declarative-manifests
+  217  oc login -u admin -p redhatocp 
+  218   oc new-project declarative-manifests
+  219  oc project -q
+  220  oc get all
+  221  cd 
+  222  cd DO280/labs/
+  223  ll
+  224  cd declarative-manifests/
+  225  pwd
+  226  ll
+  227  git clone https://git.ocp4.example.com/developer/declarative-manifests.git
+  228  ll
+  229  tree
+  230  cd declarative-manifests/
+  231  pwd
+  232  ll
+  233  ls -la
+  234  git config -l
+  235  git status 
+  236  git branch 
+  237  git log --oneline 
+  238  git checkout v1.0 
+  239  git branch 
+  240  git log --oneline 
+  241  tree
+  242  vim database.yaml 
+  243  cat database.yaml | grep kind 
+  244  cat exoplanets.yaml | grep kind 
+  245  oc get pods
+  246  vim database.yaml 
+  247  vim exoplanets.yaml 
+  248  oc get all
+  249  oc apply -f .  --validate=true --dry-run=server
+  250  oc apply -f .  
+  251  oc get all 
+  252  oc get pods
+  253  oc logs  pod db-pod-76486b9446-l7mg9
+  254  oc get pods
+  255  oc get route 
+  256  git branch 
+  257  git checkout v1.1.0
+  258  git branch 
+  259  tree
+  260  oc diff -f .
+  261  ll
+  262  cat exoplanets.yaml | grep image 
+  263  git branch 
+  264  git checkout v1.0
+  265  git branch 
+  266  cat exoplanets.yaml | grep image 
+  267  git checkout v1.1.0
+  268  cat exoplanets.yaml | grep image 
+  269  oc diff -f .
+  270  git checkout v1.0
+  271  oc diff -f .
+  272  git checkout v1.1.0
+  273  oc diff -f .
+  274  oc apply -f .  --validate=true --dry-run=server
+  275  oc apply -f .  
+  276  oc get pods
+  277  git branch 
+  278  git log --oneline 
+  279  git checkout v1.1.1
+  280  git branch 
+  281  oc diff -f .
+  282  oc get pods
+  283  oc apply -f .
+  284  oc get pods
+  285  oc logs  exoplanets-55c658855c-ksw9v 
+  286  oc get pods
+  287  oc rollout restart  deployment/database
+  288  oc get pods
+  289  oc rollout restart  deployment/exoplanets 
+  290  oc get pods
+  291  oc delete -f .
+  292  oc get pods
+  293  oc get all
+  294  ll
+  295  vim database.yaml 
+  296  cat database.yaml | grep -B 2 apiVersion 
+  297  cat database.yaml | grep -A 3 -B 2 apiVersion 
+  298  vim database.yaml 
+  299  lab finish declarative-manifests
+  300  cd
+  301  lab start declarative-kustomize
+  302  cd -
+  303  cd DO280/labs/
+  304  ll
+  305  cd declarative-kustomize/
+  306  ll
+  307  git clone https://git.ocp4.example.com/developer/declarative-kustomize.git --branch v1.1.0
+  308  ll
+  309  tree
+  310  cd declarative-kustomize/
+  311  ll
+  312  cd base/
+  313  ll
+  314  vim kustomization.yaml 
+  315  tree
+  316  ls -l
+  317  vim kustomization.yaml 
+  318  vim database/kustomization.yaml 
+  319  vim kustomization.yaml 
+  320  git branch 
+  321   oc new-project declarative-kustomize -o yaml --dry-run=cleint > mynamespace.yaml 
+  322   oc create namespace declarative-kustomize -o yaml  --dry-run=cleint > mynamespace.yaml 
+  323   oc create namespace declarative-kustomize -o yaml  --dry-run=client > mynamespace.yaml 
+  324  vim mynamespace.yaml 
+  325  ll
+  326  vim kustomization.yaml 
+  327  ll
+  328  cat kustomization.yaml 
+  329  cat mynamespace.yaml 
+  330  oc projects | grep mynamespace.yaml
+  331  git branch 
+  332  cd ..
+  333  ll
+  334  tree
+  335  oc apply -k base/
+  336  vim base/kustomization.yaml 
+  337  oc apply -k base/
+  338  oc projects | grep dec
+  339  ll
+  340  oc project -q
+  341  vim base/kustomization.yaml 
+  342  vim base/database/deployment.yaml 
+  343  ll
+  344  cd  base/
+  345  pwd
+  346  ll
+  347  oc create -f mynamespace.yaml 
+  348  oc projects | grep dec
+  349  oc project declarative-kustomize
+  350  oc project -q 
+  351  cd ..
+  352  ll
+  353  oc apply -k base/
+  354  oc get all
+  355  oc get pods
+  356  git branch 
+  357  git checkout v1.1.1
+  358  git branch 
+  359  tree
+  360  oc diff -k base/
+  361  oc apply -k base/
+  362  tree
+  363  oc get pods
+  364  git checkout v1.1.2
+  365  git branch 
+  366  tree
+  367  git show
+  368  oc apply -k base/
+  369  oc get pods
+  370  #git checkout v1.1.3
+  371  tree
+  372  git checkout v1.1.3
+  373  tree
+  374  git branch 
+  375  git checkout v1.1.2
+  376  git branch 
+  377  tree
+  378  git checkout v1.1.3
+  379  tree
+  380  git show 
+  381  oc get pods 
+  382  tree
+  383  vim overlays/production/patch-replicas.yaml 
+  384  #oc apply -k overlays/
+  385  tree
+  386  vim overlays/production/kustomization.yaml 
+  387  vim overlays/production/patch-replicas.yaml 
+  388  oc get pods
+  389  vim overlays/production/kustomization.yaml 
+  390  tree
+  391  oc apply -k overlays/
+  392  oc apply -k overlays/production/
+  393  oc get pods
+  394  oc delete -k base/
+  395  tree
+  396  uptime
+  397  oc whoami 
+  398   lab start network-ingress
+  399  cd DO280/
+  400  pwd
+  401  ll
+  402  cd labs/
+  403  pwd
+  404  ll
+  405  cd network-ingress/
+  406  pwd
+  407  ll
+  408  tree
+  409  vim todo-app-v1.yaml 
+  410   oc new-project network-ingress
+  411  oc project -q
+  412  oc get all 
+  413  ll
+  414  oc apply -f todo-app-v1.yaml 
+  415  oc get pods 
+  416  oc get svc 
+  417  oc get rs 
+  418  oc get deploy
+  419  oc get route 
+  420  #oc expose service todo-http 
+  421  oc get pods
+  422  oc get deployment 
+  423  oc project -q 
+  424  #http://todo-http-network-ingress.apps.ocp4.example.com
+  425  oc get route 
+  426  oc get svc 
+  427  oc expose service todo-http 
+  428  oc get route 
+  429  #http://todo-http-network-ingress.apps.ocp4.example.com
+  430  oc get route 
+  431  oc delete routes.route.openshift.io todo-http 
+  432  oc get route 
+  433  oc expose service todo-http --hostname todo-http-default.apps.ocp4.example.com
+  434  oc get route 
+  435  ll
+  436  oc get route 
+  437  ll
+  438  cd certs/
+  439  pwd
+  440  ll
+  441  cat openssl-commands.txt 
+  442  openssl genrsa -out training.key 4096
+  443  openssl req -new   -subj "/C=US/ST=North Carolina/L=Raleigh/O=Red Hat/CN=todo-https.apps.ocp4.example.com"   -key training.key -out training.csr
+  444  ls -lrth 
+  445  openssl x509 -req -in training.csr   -passin file:passphrase.txt   -CA training-CA.pem -CAkey training-CA.key -CAcreateserial   -out training.crt -days 1825 -sha256 -extfile training.ext
+  446  ls -lrth 
+  447  oc create route edge edge-todo-https --key training.key --cert training.crt --hostname todo-https.apps.ocp4.example.com
+  448  #oc create route edge edge-todo-https --service   --key training.key --cert training.crt --hostname todo-https.apps.ocp4.example.com
+  449  oc get svc 
+  450  oc create route edge edge-todo-https --service todo-http  --key training.key --cert training.crt --hostname todo-https.apps.ocp4.example.com
+  451  oc get route 
+  452  oc get pods 
+  453  ll
+  454  cd ..
+  455  ll
+  456  vim todo-app-v2.yaml 
+  457  oc get secret todo-certs
+  458  oc apply -f todo-app-v2.yaml 
+  459  oc get pods
+  460  curl -I -v https://todo-https.apps.ocp4.example.com
+  461  oc get route 
+  462  curl -I -v https://todo-https.apps.ocp4.example.com
+  463  oc get pods 
+  464  oc create secret tls todo-certs  --cert certs/training.crt --key certs/training.key
+  465  ll
+  466  oc get secret 
+  467  oc extract secret/todo-certs --to=.
+  468  ll
+  469  oc get pods 
+  470  oc rsh todo-https-548d64494c-q8rcj 
+  471  curl -I -v https://todo-https.apps.ocp4.example.com:8443 
+  472  curl -I -v https://todo-https.apps.ocp4.example.com
+  473   oc set volumes deployment/todo-https
+  474  oc get pods
+  475  #oc create route passthrough todo-https 
+  476  oc get route 
+  477  oc create route passthrough todo-https  --service todo-https --port 8443  --hostname todo-https-passthrough.apps.ocp4.example.com
+  478  oc get route 
+  479  curl -I -v https://todo-https-passthrough.apps.ocp4.example.com
+  480  oc get route 
+  481  oc delete route edge-todo-https
+  482  oc get route 
+  483  oc delete routes.route.openshift.io todo-https
+  484  oc get route 
+  485  oc create route passthrough todo-https  --service todo-https --port 8443  --hostname todo-https.apps.ocp4.example.com
+  486  oc get route 
+  487  curl -I -v https://todo-https.apps.ocp4.example.com
+  488  curl -I -vv  --cacert certs/training-CA.pem https://todo-https.apps.ocp4.example.com
+  489  oc get route 
+  490  oc create route edge edge-todo-https --service todo-http  --key training.key --cert training.crt --hostname todo-https.apps.ocp4.example.com
+  491  oc create route edge edge-todo-https --service todo-http  --key certs/training.key --cert certs/training.crt --hostname todo-https-edge.apps.ocp4.example.com
+  492  oc get route 
+  493  curl -I -vv  --cacert certs/training-CA.pem https://todo-https-edge.apps.ocp4.example.com
+  494  oc whoami 
+  495  oc login -u admin -p redhatocp 
+  496  oc get nodes
+  497  lab start network-svccerts
+  498  oc project network-svccerts
+  499  oc get pods 
+  500  oc logs server-854655dd57-k8j6k
+  501  oc get secret 
+  502  oc get svc 
+  503  oc get pods 
+  504   oc annotate service server    service.beta.openshift.io/serving-cert-secret-name=server-secret
+  505  oc get secret 
+  506  mkdir work 
+  507  mkdir work3
+  508  cd work
+  509  cd ../work3/
+  510  pwd
+  511  ll
+  512  oc extract secret/server-secret --to=. 
+  513  ll
+  514  oc get pods
+  515  ll
+  516  cd 
+  517  cd DO280/
+  518  ll
+  519  cd labs/
+  520  ll
+  521  cd network-svccerts/
+  522  ll
+  523  vim server-secret.yaml 
+  524  oc get deployment 
+  525  oc get deployment -o yaml > deployment-server.yaml 
+  526  vim deployment-server.yaml 
+  527  ll
+  528  vim server-secret.yaml 
+  529  oc get pods
+  530  oc logs server-854655dd57-k8j6k
+  531  vim server-secret.yaml 
+  532  oc get secret 
+  533  vim server-secret.yaml 
+  534  ll
+  535  oc extract secret/server-secret --to=. 
+  536  ll
+  537  oc patch deployment server --patch-file ~/DO280/labs/network-svccerts/server-secret.yaml
+  538  oc get pods
+  539  oc rsh server-f9b4bb6fb-7btgf 
+  540  oc get pods
+  541  oc rsh no-ca-bundle 
+  542  ll
+  543  vim client.yaml 
+  544  oc create configmap ca-bundle
+  545  oc annotate configmap ca-bundle service.beta.openshift.io/inject-cabundle=true
+  546  oc get cm 
+  547  ll
+  548  mkdir cm 
+  549  cd cm/
+  550  oc extract cm/ca-bundle --to=. 
+  551  ll
+  552  cd ..
+  553  vim client.yaml 
+  554  oc get pods
+  555  oc create -f client.yaml 
+  556  oc get pods
+  557  oc rsh client-7bf4d87868-vd4pd 
+  558  oc new-project demo02
+  559  oc new-project demo03
+  560  oc project -q 
+  561  oc new-app --name test httpd:2.4
+  562  oc get pods
+  563  oc get svc 
+  564  oc get pods -o wide 
+  565  oc get svc 
+  566  oc describe svc 
+  567  oc scale --replicas=2 deployment test 
+  568  oc get pods -o wide 
+  569  oc describe svc 
+  570  oc get svc 
+  571  oc rsh test-7cf99d8f9f-btg47 
+  572  oc create sa app-sa 
+  573  oc adm policy add-scc-to-user anyuid -z app-sa 
+  574  oc edit deployment
+  575  oc get pods 
+  576  oc rsh test-79db5857d4-4xv7n 
+  577  oc rsh test-79db5857d4-8ff94 
+  578  oc get pods 
+  579  oc get svc 
+  580  oc expose service test 
+  581  oc get route 
+  582  curl http;//test-demo03.apps.ocp4.example.com
+  583  curl http://test-demo03.apps.ocp4.example.com
+  584  oc get pods 
+  585  oc get svc 
+  586  oc describe svc 
+  587  oc edit deployment
+  588  oc edit svc 
+  589  oc get pods -o wide ;
+  590  curl http://test-demo03.apps.ocp4.example.com
+  591  oc describe svc 
+  592  oc edit svc 
+  593  oc describe svc 
+  594  oc edit svc 
+  595  oc get pods -o wide
+  596  oc get svc 
+  597  oc describe svc 
+  598  oc get nodes -o wide 
+  599  curl http://192.168.50.10:32036
+  600  oc edit svc 
+  601  oc get nodes -o wide 
+  602  oc get pods -o wide
+  603  oc get svc 
+  604  curl http://192.168.50.20:32036 
+  605  curl http://192.168.50.20:8080
+  606  oc get all -n metallb-system 
+  607  lab start non-http-multus
+  608  cd DO280/
+  609  pwd
+  610  ll
+  611  cd labs/
+  612  ll
+  613  cd non-http-multus/
+  614  pwd
+  615  ll
+  616  ssh root@utility 
+  617  oc get nodes -o wide 
+  618  ssh core@192.168.50.10
+  619  ssh core@192.168.51.10
+  620  route -n 
+  621  hostname -I 
+  622  ping -c 2 192.168.50.10
+  623  ping -c 2 192.168.51.10
+  624  ssh root@utility 
+  625   oc new-project non-http-multus
+  626  oc project -q
+  627  oc login -u admin -p redhatocp 
+  628  oc project -q 
+  629  oc get all
+  630   oc apply -f ~/DO280/labs/non-http-multus/deployment.yaml
+  631  oc get pods
+  632  oc get nodes -o wide 
+  633  oc debug node/master01 -- chroot /host ip addr
+  634  pwd
+  635  ll
+  636  vim network-attachment-definition.yaml 
+  637  diff network-attachment-definition.yaml ../../solutions/non-http-multus/network-attachment-definition.yaml 
+  638  vim network-attachment-definition.yaml 
+  639  diff network-attachment-definition.yaml ../../solutions/non-http-multus/network-attachment-definition.yaml 
+  640  vim network-attachment-definition.yaml 
+  641  diff network-attachment-definition.yaml ../../solutions/non-http-multus/network-attachment-definition.yaml 
+  642  oc create -f network-attachment-definition.yaml 
+  643  oc get network-attachment-definitions.k8s.cni.cncf.io 
+  644  oc get network-attachment-definitions.k8s.cni.cncf.io -o yaml 
+  645  ll
+  646  vim deployment.yaml 
+  647  oc get pods
+  648  oc apply -f deployment.yaml 
+  649  oc get pods
+  650  oc get pod database-b5fc4f749-mpbxh  -o jsonpath='{.metadata.annotations.k8s\.v1\.cni\.cncf\.io/network-status}'
+  651  ssh utility 
+  652  oc get pods
+  653  oc rsh database-b5fc4f749-mpbxh
+  654  oc whoami 
+  655  oc get nodes
+  656  oc get oauth -o yaml 
+  657  oc get users | grep devops 
+  658  oc get users | grep app01 
+  659  oc get users
+  660  oc get groups 
+  661  oc get groups | grep _grp 
+  662  oc projects | grep app
+  663  oc login -u user10 -p redhat123\
+  664  oc login -u user10 -p redhat123
+  665  oc project -q
+  666  oc get project
+  667  oc create quota --help |less
+  668  oc create quota my-quota --hard=cpu=1,memory=1Gi,pods=15,services=5,secrets=15,persistentvolumeclaims=5 -n ns-app01 -o yaml --dry-run=client > quota-ns-app01.yaml 
+  669  vim quota-ns-app01.yaml 
+  670  oc apply -f quota-ns-app01.yaml 
+  671  oc whoami 
+  672  oc login -u user1 -p redhat123
+  673  oc get nodes
+  674  oc apply -f quota-ns-app01.yaml 
+  675  oc get quota 
+  676  oc describe resourcequotas 
+  677  oc get pods
+  678  oc delete all -l app=test01
+  679  oc describe resourcequotas 
+  680  vim limitrange.yaml 
+  681  vim test.yaml 
+  682  vim limitrange.yaml 
+  683  lscpu |less
+  684  vim limitrange.yaml 
+  685  oc create -f limitrange.yaml --save-config -n ns-app01
+  686  oc describe resourcequotas 
+  687  oc describe limitranges 
+  688  oc new-app --name test01 httpd:2.4 
+  689  oc get pods 
+  690  oc get svc 
+  691  oc describe resourcequotas 
+  692  oc describe limitranges 
+  693  oc scale --replicas=5 deployment/test01 
+  694  oc get pods 
+  695  oc describe resourcequotas 
+  696  oc describe limitranges 
+  697  oc scale --replicas=10 deployment/test01 
+  698  oc describe limitranges 
+  699  oc describe resourcequotas 
+  700  oc get pods
+  701  oc get events -n ns-app01 
+  702  vim quota-ns-app01.yaml 
+  703  oc apply -f quota-ns-app01.yaml 
+  704  oc describe resourcequotas 
+  705  oc get pods
+  706  oc scale --replicas=10 deployment/test01 
+  707  oc get pods
+  708  oc describe resourcequotas 
+  709  oc get pods
+  710  oc get events -n ns-app01 
+  711  oc get events -n ns-app01 |less
+  712   oc adm create-bootstrap-project-template -o yaml > file.yaml 
+  713  vim file.yaml 
+  714  cat file.yaml | grep kind 
+  715  lab start selfservice-projtemplate
+  716  oc describe groups.user.openshift.io provisioners
+  717  oc get groups
+  718   oc git clusterrolebinding self-provisioners
+  719   oc get clusterrolebinding self-provisioners
+  720   oc edit clusterrolebinding self-provisioners
+  721  oc login -u developer -p developer
+  722  oc new-project test
+  723  oc whoami 
+  724   oc login -u provisioner1 -p redhat
+  725  oc new-project test
+  726  oc project -q
+  727  oc create configmap test
+  728   oc adm create-bootstrap-project-template  -o yaml >template.yaml
+  729  vim template.yaml 
+  730  oc get template
+  731  #oc create -f template.yaml  -n openshift-config
+  732  vim template.yaml 
+  733  oc get template -n openshift-config 
+  734  oc whoami 
+  735  oc login -u admin -p redhatocp 
+  736  oc get template -n openshift-config 
+  737  oc create -f template.yaml  -n openshift-config
+  738  oc get template -n openshift-config 
+  739  oc get pods -n openshift-authentication
+  740  oc get pods -n openshift-authentication-operator 
+  741  oc projects | grep operator 
+  742  oc get pods -n openshift-authentication -o wide 
+  743  oc get pods -n openshift-authentication-operator -o wide 
+  744  oc get co
+  745  oc whoami --show-console 
+  746  oc projects | grep file 
+  747  oc get all -n openshift-file-integrity 
+  748  oc whoami 
+  749  oc get nodes 
+  750  kubectl get nodes
+  751  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443
+  752  nslookup api.ocp4.example.com
+  753  ssh 192.168.50.254 -l root
+  754  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443
+  755  ssh 192.168.50.254 -l root
+  756  oc get nodes
+  757  oc version 
+  758  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443
+  759  oc whoami 
+  760  oc whoami -t
+  761  mkdir mywork 
+  762  cd mywork/
+  763  pwd
+  764  ll
+  765  htpasswd --help 
+  766  ll
+  767  htpasswd -c -B -b htpasswd-upload-file rhuser1 redhat123
+  768  ll
+  769  cat htpasswd-upload-file 
+  770  htpasswd -c -B -b htpasswd-upload-file rhuser2 redhat123
+  771  cat htpasswd-upload-file 
+  772  htpasswd -c -B -b htpasswd-upload-file rhuser1 redhat123
+  773  cat htpasswd-upload-file 
+  774  htpasswd  -B -b htpasswd-upload-file rhuser2 redhat123
+  775  cat htpasswd-upload-file 
+  776  htpasswd  -b htpasswd-upload-file rhuser3 redhat123
+  777  cat htpasswd-upload-file 
+  778  htpasswd htpasswd-upload-file rhuser4
+  779  cat htpasswd-upload-file 
+  780  htpasswd  -B -b htpasswd-upload-file rhuser5 redhat123
+  781  cat htpasswd-upload-file 
+  782  #oc create secret generic secret-htpasswd --from-file htpasswd=htpasswd-upload-file -n openshift-config
+  783  oc get secret secret-htpasswd -n openshift-config
+  784  oc create secret generic secret-htpasswd --from-file htpasswd=htpasswd-upload-file -n openshift-config
+  785  oc get secret secret-htpasswd -n openshift-config
+  786  oc get secret secret-htpasswd -n openshift-config -o yaml 
+  787  echo "cmh1c2VyMTokMnkkMDUkUGx1clRZOWdROVpNUnFpWnFDc0ZsTzBsMUY2L2JnOU04TjcwWHo5Z2YyTnM4S1NjREFtOFMKcmh1c2VyMjokMnkkMDUkZFlEVFZLd0lTV1ZBbUJELmJ2cTB3ZXl4WHp6OVB0dnZjTDRJdUdqNXRvaUFMdnN5Z0hicmEKcmh1c2VyMzokYXByMSRBRFhSR3BpRCRuaENMRDM3UUJJZ1VTVTgzTHh6YTIxCnJodXNlcjQ6JGFwcjEkenpoQ2pWS2okeHhtaXJpYVk0S0lCVDdFdmNQWlh2LgpyaHVzZXI1OiQyeSQwNSRWRDJZSktJd25qOENHcmVGSUJIQUp1d3ZFcjNYUWU2MS9TaFNGN1FiTnpPaUpwdWNMQUdyNgo=" | base64 -w0 
+  788  oc get secret secret-htpasswd -n openshift-config
+  789  oc create configmap cm-myname --from-file htpasswd=htpasswd-upload-file -n openshift-config 
+  790  oc get cm cm-myname -n openshift-config
+  791  oc get cm cm-myname -n openshift-config -o yaml 
+  792  oc get secret secret-htpasswd -n openshift-config -o yaml 
+  793  oc get cm cm-myname -n openshift-config -o yaml 
+  794  oc get cm cm-myname -n openshift-config -o json
+  795  oc get cm cm-myname -n openshift-config -o yaml 
+  796  oc get oauth 
+  797  oc get oauth cluster 
+  798  oc get oauth cluster -o yaml > oauth.yaml 
+  799  vim oauth.yaml 
+  800  oc get secret secret-htpasswd -n openshift-config
+  801  vim oauth.yaml 
+  802  oc get oauth cluster -o yaml 
+  803  ll
+  804  oc apply -f htpasswd-upload-file 
+  805  vim oauth.yaml 
+  806  ll
+  807  oc apply -f oauth.yaml 
+  808  oc get oauth cluster -o yaml 
+  809  oc get pods -n openshift-authentication
+  810  watch oc get pods -n openshift-authentication
+  811  oc get pods -n openshift-authentication
+  812  oc login -u rhuser1 -p redhat123 
+  813  oc login -u rhuser2 -p redhat123 
+  814  oc login -u rhuser3 -p redhat123 
+  815  oc whoami 
+  816  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443
+  817  oc get users | grep rhuser
+  818  oc get oauth cluster 
+  819  oc get pods -n openshift-authentication
+  820  oc get pods -n openshift-apiserver
+  821  oc get pods -n openshift-kube-apiserver | grep master01 
+  822  oc get pods -n openshift-kube-apiserver | grep master01  | grep Runn
+  823  oc get oauth cluster 
+  824  oc get pods -n openshift-authentication
+  825  oc get pods -n openshift-apiserver
+  826  oc get pods -n openshift-kube-apiserver | grep master01  | grep Runn
+  827  oc get pods -n openshift-etcd
+  828  oc get pods -n openshift-kube-controller
+  829  oc get pods -n openshift-kube-controller-manager
+  830  oc get pods -n openshift-kube-controller-manager | grep running
+  831  oc get pods -n openshift-kube-controller-manager | grep runn
+  832  oc get pods -n openshift-kube-controller-manager | grep Run 
+  833  ll
+  834  oc get secret secret-htpasswd -n openshift-config
+  835  oc extract secret/secret-htpasswd -n openshift-config --to=.
+  836  ll
+  837  cat htpasswd
+  838  htpasswd -B -b htpasswd rhuser1 red
+  839  oc set data secret/secret-htpasswd --from-file htpasswd=htpasswd -n openshift-config 
+  840  watch oc get pods -n openshift-authentication
+  841  oc login -u rhuser1 -p redhat123 
+  842  oc login -u rhuser1 -p red
+  843  watch oc get pods -n openshift-authentication
+  844  oc login -u rhuser1 -p red
+  845  oc login -u rhuser1 -p redhat123
+  846  oc whoami 
+  847  oc get nodes
+  848  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443
+  849  oc adm policy add-cluster-role-to-user cluster-admin rhuser1 
+  850  oc login -u rhuser1 -p redhat123
+  851  oc login -u rhuser1 -p red
+  852  oc whoami 
+  853  oc get nodes
+  854  ll
+  855  git clone https://github.com/cprakash2118/07-June2025-DO280
+  856  history  > 07-June2025-DO280/histry-day-01.txt
+  857  cd 07-June2025-DO280/
+  858  git add .
+  859  git commit -m update 
+  860  git pu
+  861  git push 
+  862  oc whoami 
+  863  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443 
+  864  oc new-project demo11 
+  865  oc project -q 
+  866  oc get all
+  867  oc new-app --name test quay.io/cprakash2118/april-java-unzip-httpd-image-02
+  868  oc get pods 
+  869  oc get svc 
+  870  oc get deployment,rs
+  871  oc get svc 
+  872  oc get route 
+  873  oc expose service test 
+  874  oc get route 
+  875  oc get pods 
+  876  oc logs test-6b4d5c9fd9-2xfj6 
+  877  oc create serviceaccount app-sa 
+  878  oc get sa
+  879  oc get secret 
+  880  oc adm policy add-scc-to-user anyuid -z app-sa 
+  881  oc describe rolebindings |less
+  882  oc describe rolebindingrestrictions.authorization.openshift.io |less
+  883  oc describe clusterrolebindings |less
+  884  oc get pods 
+  885  oc set serviceaccount deployment test app-sa 
+  886  oc get pods 
+  887  oc get deployment test -o yaml | grep app-sa 
+  888  oc rsh test-5486c9c49c-fv7dz 
+  889  oc new-app --name gmail httpd:2.4 
+  890  oc get pods 
+  891  oc rsh gmail-58fd456b8f-4ltgb 
+  892  oc get deployment gmail -o yaml > deploy-gmail.yaml 
+  893  vim deploy-gmail.yaml 
+  894  oc apply -f deploy-gmail.yaml 
+  895  oc get pods
+  896  oc rsh gmail-5cdbf89d5d-vvjd6
+  897  oc get deployment
+  898  oc edit deployment gmail 
+  899  oc rsh gmail-5cdbf89d5d-vvjd6
+  900  oc edit deployment gmail 
+  901  oc get pods
+  902  oc rsh gmail-5b8bf9b5d9-ntmhd 
+  903  oc expose service gmail 
+  904  oc get route 
+  905  curl http://gmail-demo11.apps.ocp4.example.com
+  906  curl http://gmail-demo11.apps.ocp4.example.com:8080
+  907  curl http://gmail-demo11.apps.ocp4.example.com
+  908  oc get pods 
+  909  oc edit deployment gmail 
+  910  oc get pods 
+  911  oc rsh gmail-5cdbf89d5d-q8wkx 
+  912  curl http://gmail-demo11.apps.ocp4.example.com
+  913  oc edit deployment gmail 
+  914  oc get pods 
+  915  oc rsh gmail-5b8bf9b5d9-nbnhr 
+  916  curl http://gmail-demo11.apps.ocp4.example.com
+  917  oc get scc 
+  918  oc explain scc|less 
+  919  oc get scc 
+  920  oc create job --dry-run=client -o yaml test --image=registry.access.redhat.com/ubi8/ubi:8.6 -- curl https://example.com > mycron-01.yaml 
+  921  vim mycron-01.yaml 
+  922  cat /etc/crontab 
+  923  #*/15 * * * * comamdn 
+  924  oc create job --dry-run=client -o yaml test --image=registry.access.redhat.com/ubi8/ubi:8.6  --schedule='0 0 * * *' -- curl https://example.com > my-cronjob-02.yaml 
+  925  oc create job --help | grep sche
+  926  oc create cronjob --dry-run=client -o yaml test --image=registry.access.redhat.com/ubi8/ubi:8.6  --schedule='0 0 * * *' -- curl https://example.com > my-cronjob-02.yaml 
+  927  vim my-cronjob-02.yaml 
+  928  lab start appsec-prune
+  929   oc new-project appsec-prune
+  930  oc project -q 
+  931  cd ~/DO280/labs/appsec-prune
+  932  ll
+  933   oc get deployments -n prune-apps -o wide
+  934   oc get pods -n prune-apps
+  935   oc debug node/master01 --  chroot /host  crictl images | egrep '^IMAGE|httpd|nginx'
+  936   oc debug node/master01 -- chroot /host crictl rmi --prune
+  937  # oc delete deployment nginx-ubi{7,8,9}
+  938  oc get pods  -n prune-apps
+  939  oc delete deployment nginx-ubi{7,8,9}  -n prune-apps
+  940  ll
+  941  vim configmap-prune.yaml 
+  942  oc get nodes
+  943  oc debug node/master01
+  944  oc apply -f configmap-prune.yaml
+  945  oc get cm
+  946  oc get cm maintenance -o yaml
+  947  :q
+  948  ll
+  949  oc extract cm/maintenance --to=. 
+  950  ll
+  951  cat maintenance.sh 
+  952  vim cronjob-prune.yaml 
+  953  oc apply -f cronjob-prune.yaml 
+  954  oc get cronjobs.batch 
+  955   watch oc get cronjobs,jobs,pods
+  956  oc get pods 
+  957  oc logs  image-pruner-29157426-tbd9t
+  958  vim cronjob-prune.yaml 
+  959  ll
+  960  vim configmap-prune.yaml 
+  961  cat maintenance.sh 
+  962  oc get cm 
+  963  oc apply -f configmap-prune.yaml 
+  964   watch oc get cronjobs,jobs,pods
+  965  oc get pods
+  966  oc logs  image-pruner-29157430-kr9tt
+  967  oc get pods
+  968  oc logs  image-pruner-29157432-r89k4
+  969  vim configmap-prune.yaml 
+  970  oc apply -f configmap-prune.yaml 
+  971  oc get pods
+  972  oc get cronjobs.batch 
+  973  oc get pods
+  974  oc logs  image-pruner-29157434-4p4pk
+  975  oc create serviceaccount app-sa 
+  976  oc adm policy add-scc-to-user privileged -z app-sa
+  977  oc adm policy add-cluster-role-to-user cluster-admin -z app-sa
+  978  vim cronjob-prune.yaml 
+  979  oc get cronjobs.batch 
+  980  oc get pods
+  981  cat maintenance.sh 
+  982  oc get pods
+  983  oc logs  image-pruner-29157438-k56qh
+  984  oc get pods
+  985  oc get cronjobs.batch 
+  986  oc apply -f cronjob-prune.yaml 
+  987  oc get cronjobs.batch 
+  988  oc edit cronjobs.batch image-pruner 
+  989  vim cronjob-prune.yaml 
+  990  oc apply -f cronjob-prune.yaml 
+  991  oc get cronjobs.batch 
+  992  vim cronjob-prune.yaml 
+  993  oc get cronjobs.batch 
+  994  oc delete cronjobs.batch image-pruner 
+  995  oc apply -f cronjob-prune.yaml 
+  996  oc get cronjobs.batch 
+  997  oc get pods 
+  998  watch oc get cronjobs.batch,pod 
+  999  oc get pods
+ 1000  oc logs pod/image-pruner-29157442-6ppwl | tail 
+ 1001  oc get users 
+ 1002  oc get users | grep devops 
+ 1003  oc get users | grep app01 
+ 1004  oc whoami 
+ 1005  oc get groups 
+ 1006  oc get users | grep devops 
+ 1007  oc get users | grep app01 
+ 1008  oc get groups | grep grp 
+ 1009  oc get oauth cluster 
+ 1010  oc get oauth cluster -o yaml | tail -20 
+ 1011  oc get oauth cluster -o yaml | tail -23
+ 1012  oc get oauth cluster -o yaml | tail -24
+ 1013  oc get oauth cluster 
+ 1014  oc get oauth cluster -o yaml | tail -24
+ 1015  oc get oauth cluster -o yaml | tail -50 | head -20 
+ 1016  oc get oauth cluster -o yaml | tail -45 | head -20 
+ 1017  oc get oauth cluster -o yaml | tail -46 | head -21 
+ 1018  oc get oauth cluster 
+ 1019  oc get oauth cluster -o yaml | tail -46 | head -21 
+ 1020  oc get secrets -n openshift-config | grep team
+ 1021  oc get secrets -n openshift-config
+ 1022  oc get secrets -n openshift-config | grep "secret-"
+ 1023  history | grep "oc create secret"
+ 1024  mkdir work3
+ 1025  mkdir work4
+ 1026  cd work4/
+ 1027  pw
+ 1028  opwd
+ 1029  pwd
+ 1030  ll
+ 1031  touch upload-file-myapp
+ 1032  for x in {21..30}; do htpasswd -B -b upload-file-myapp user$21 redhat123 ; done
+ 1033  > upload-file-myapp 
+ 1034  for x in {21..30}; do htpasswd -B -b upload-file-myapp user$x redhat123 ; done
+ 1035  cat upload-file-myapp 
+ 1036  oc create secret generic secret-myapp --from-file htpasswd=upload-file-myapp -n openshift-config 
+ 1037  oc get secret secret-myapp -n openshift-config 
+ 1038  oc get oauth cluster -o yaml > oauth.yaml 
+ 1039  vim oauth.yaml 
+ 1040  oc apply -f oauth.yaml 
+ 1041  oc get pods -n openshift-authentication
+ 1042  watch oc get pods -n openshift-authentication
+ 1043  oc get pods -n openshift-authentication
+ 1044  for x in {21..30}; do oc login -u user$x -p redhatocp https://api.ocp4.example.com:6443 ; done
+ 1045  for x in {21..30}; do oc login -u user$x -p redhat123 https://api.ocp4.example.com:6443 ; done
+ 1046  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443 
+ 1047  oc get users | grep myapp 
+ 1048  oc new-project ns-myapp
+ 1049  oc projects | grep ns- 
+ 1050  oc get users | grep myapp 
+ 1051  oc projects | grep ns-myapp 
+ 1052  oc project -q 
+ 1053  oc get all
+ 1054  oc login -u user25 -p redhat123
+ 1055  oc get nodes
+ 1056  oc whoami 
+ 1057  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443 
+ 1058  oc describe clusterrolebindings | grep self 
+ 1059  oc describe clusterrolebindings self-provisioner
+ 1060  oc login -u user25 -p redhat123
+ 1061  oc new-project demo 
+ 1062  oc edit clusterrolebindings self-provisioner
+ 1063  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443 
+ 1064  oc edit clusterrolebindings self-provisioner
+ 1065  oc projects | grep ns-myapp 
+ 1066  oc whoami 
+ 1067  oc adm policy add-scc-to-user admin user21 -n ns-myapp 
+ 1068  oc adm policy add-scc-to-user admin user22 -n ns-myapp 
+ 1069  oc login -u user21 -p redhat 
+ 1070  oc login -u user21 -p redhat123
+ 1071  oc policy add-role-to-user edit user23 -n ns-myapp
+ 1072  oc whoami 
+ 1073  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443 
+ 1074  oc adm policy add-role-to-user admin -n ns-myapp 
+ 1075  oc adm policy add-role-to-user admin user21 -n ns-myapp 
+ 1076  oc login -u user21 -p redhat123
+ 1077  oc policy add-role-to-user edit user23 -n ns-myapp
+ 1078  oc policy add-role-to-user edit user24 -n ns-myapp
+ 1079  oc policy add-role-to-user edit user25 -n ns-myapp
+ 1080  oc policy add-role-to-user edit user26 -n ns-myapp
+ 1081  oc policy add-role-to-user edit user27 -n ns-myapp
+ 1082  oc policy add-role-to-user edit user28 -n ns-myapp
+ 1083  oc policy add-role-to-user view user29 -n ns-myapp
+ 1084  oc policy add-role-to-user view user30 -n ns-myapp
+ 1085  oc login -u user29 -p redhat123
+ 1086  oc whoami 
+ 1087  oc new-app --name test-maypass httpd:2.4 
+ 1088  oc get pods
+ 1089  oc login -u user27 -p redhat123
+ 1090  oc new-app --name test-maypass httpd:2.4 
+ 1091  oc get pods
+ 1092  history 
+ 1093  history  > history-session-02.txt
