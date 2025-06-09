@@ -84,7 +84,7 @@ spec:
       fileData:
         name: htpass-secretName-Here 
 		
-
+$ oc apply -f oauth.yaml 
 $ oc get pods -n openshift-authetication 
 $ oc login -u user1 -p passwd https://api.ocp4.example.com:6443 
 $ oc get users 
